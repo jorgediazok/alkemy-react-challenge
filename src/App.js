@@ -1,23 +1,50 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
+const BASE_URL = `https://superheroapi.com/api/10159438099248670/245`;
+
+const fetchSuperheroes = async () => {
+  const res = await axios.get(BASE_URL);
+  const data = res.json();
+  console.log(data);
+};
+
 function App() {
+  const [superheroes, setSuperheroes] = useState([]);
+
+  useEffect(() => {
+    fetchSuperheroes();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul className="nav">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/">
+            Active
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            Link
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            Link
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link disabled"
+            href="/"
+            tabIndex="-1"
+            aria-disabled="true">
+            Disabled
+          </a>
+        </li>
+      </ul>
     </div>
   );
 }
