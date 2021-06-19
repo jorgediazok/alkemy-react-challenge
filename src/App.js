@@ -1,52 +1,29 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
+//Routing
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const BASE_URL = `https://superheroapi.com/api/10159438099248670/245`;
+//Pages
+import Home from './pages/Home';
+import Auth from './pages/Auth';
+import Hero from './pages/Hero';
+import PageNotFound from './pages/PageNotFound';
 
-const fetchSuperheroes = async () => {
-  const res = await axios.get(BASE_URL);
-  const data = res.json();
-  console.log(data);
-};
+//Components
+import Navbar from './components/Navbar';
 
 function App() {
-  const [superheroes, setSuperheroes] = useState([]);
-
-  useEffect(() => {
-    fetchSuperheroes();
-  }, []);
-
   return (
-    <div className="App">
-      <ul className="nav">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">
-            Active
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/">
-            Link
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/">
-            Link
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className="nav-link disabled"
-            href="/"
-            tabIndex="-1"
-            aria-disabled="true">
-            Disabled
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/auth" component={Auth} />
+        <Route path="/:id" component={Hero} />
+        <Route path="*" component={PageNotFound} />
+      </Switch>
+    </Router>
   );
 }
 
 export default App;
+
+//<Route path="/auth" exact  component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />
