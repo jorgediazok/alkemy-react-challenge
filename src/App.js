@@ -7,13 +7,9 @@ import Auth from './pages/Auth';
 import Hero from './pages/Hero';
 import PageNotFound from './pages/PageNotFound';
 
-//Components
-import Navbar from './components/Navbar';
-
 function App() {
   return (
     <Router>
-      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/auth" component={Auth} />

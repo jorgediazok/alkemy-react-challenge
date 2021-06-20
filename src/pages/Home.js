@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Home.scss';
 
+//Components
+import Navbar from '../components/Navbar';
+
 const Home = () => {
   const [hero, setHero] = useState('');
 
@@ -23,6 +26,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       <img src={hero.image.url} alt="" />
     </div>
   );

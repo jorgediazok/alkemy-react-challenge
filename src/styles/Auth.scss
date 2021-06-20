@@ -1,0 +1,70 @@
+.row {
+  background: white;
+  border-radius: 30px;
+  box-shadow: 12px 12px 22px;
+}
+
+.login img {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+
+  @media screen and (max-width: 450px) {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  form {
+    margin-left: -15px;
+  }
+}
+
+.login h1 {
+  font-family: 'Lobster', cursive;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.input-email,
+.input-password {
+  height: 50px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  box-shadow: -1px 1px 30px -11px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 1px 30px -11px (rgba(0, 0, 0, 0.75));
+  -moz-box-shadow: -1px 1px 30px -11px (rgba(0, 0, 0, 0.75));
+}
+
+.btn-login {
+  height: 50px;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  font-weight: 600;
+  background: #ef4148;
+  color: #fff;
+  transition: all 0.5s;
+
+  &:hover {
+    background: #cd333f;
+  }
+}
+
+.fa-facebook {
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgb(39, 39, 192);
+}
+
+.fa-google {
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgb(224, 22, 72);
+}
