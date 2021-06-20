@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import Auth from './Auth';
 import axios from 'axios';
+import Loading from '../images/loading.gif';
 import '../styles/Home.scss';
 
 //Components
-import Navbar from '../components/Navbar';
+//import Navbar from '../components/Navbar';
 
 const Home = () => {
   const [hero, setHero] = useState('');
@@ -15,20 +17,26 @@ const Home = () => {
       setHero(data);
     };
 
-    fetchSuperhero(242);
+    fetchSuperhero(211);
   }, []);
 
   console.log(hero);
 
   if (!hero) {
-    return <div>Loading ...</div>;
+    return (
+      <div className="loading-container">
+        <img src={Loading} alt="" className="loading"></img>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <Navbar />
-      <img src={hero.image.url} alt="" />
-    </div>
+    <Auth>
+      <div>
+        <img src={hero.image.url} alt="" />
+        <input type="text" />
+      </div>
+    </Auth>
   );
 };
 

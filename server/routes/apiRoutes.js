@@ -6,6 +6,12 @@ const axios = require('axios');
 
 const API_URL = `https://superheroapi.com/api/${process.env.REACT_APP_API_KEY}`;
 
+router.get(`${API_URL}/search/:name`, (req, res) => {
+  axios.get(`${API_URL}/${req.params.name}`).then((heroes) => {
+    res.json(heroes.data);
+  });
+});
+
 router.get('/:id', (req, res) => {
   axios.get(`${API_URL}/${req.params.id}`).then((heroes) => {
     res.json(heroes.data);

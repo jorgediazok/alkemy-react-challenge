@@ -1,0 +1,16 @@
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 70px;
+
+  @media screen and (max-width: 450px) {
+    margin-top: 220px;
+  }
+}
+
+.loading {
+  max-width: 50%;
+  background: #efefef;
+}
