@@ -32,9 +32,17 @@ const Home = () => {
 
   return (
     <Auth>
-      <div>
-        <img src={hero.image.url} alt="" />
-        <input type="text" />
+      <div className="search-container">
+        <h1 className="search-title">Create your Hero's team</h1>
+        <div className="search-container-input">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search Hero ... "
+            autoFocus
+          />
+          <div className="fa fa-search search-icon"></div>
+        </div>
       </div>
     </Auth>
   );
