@@ -55,13 +55,9 @@ const Home = () => {
             onClick={() => searchSuperHeros(term)}></div>
         </div>
       </div>
-      <div className="container">
+      <div className="container-cards">
         {heros.length > 0 &&
-          heros.map((hero, i) => (
-            <div key={i}>
-              <HeroCard hero={hero} />
-            </div>
-          ))}
+          heros.map((hero, i) => <HeroCard hero={hero} key={i} />)}
       </div>
     </Auth>
   );

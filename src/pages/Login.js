@@ -56,7 +56,7 @@ const Login = () => {
   });
 
   return (
-    <section className="login py-5 bg-light">
+    <section className="login py-5">
       <div className="container">
         <div className="row g-0">
           <div className="col-lg-5 col-md-5 col-sm-12 col-12">

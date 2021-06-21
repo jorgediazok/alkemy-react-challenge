@@ -68,8 +68,8 @@ body {
   }
 }
 
-.container {
-  padding: 0px 20px;
+.container-cards {
+  min-width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;

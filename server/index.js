@@ -4,6 +4,7 @@ const apiRoutes = require('./routes/apiRoutes');
 
 const app = express();
 
+//middleware
 app.use(cors());
 
 app.use('/', apiRoutes);
