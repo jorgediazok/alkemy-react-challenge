@@ -1,28 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Auth from './Auth';
 import axios from 'axios';
 import Loading from '../images/loading.gif';
 import '../styles/Home.scss';
 
-//Components
-//import Navbar from '../components/Navbar';
-
 const Home = () => {
-  const [hero, setHero] = useState('');
+  const [term, setTerm] = useState('');
+  const [heros, setHeros] = useState([]);
 
-  useEffect(() => {
-    const fetchSuperhero = async (id) => {
-      const res = await axios.get(`http://localhost:5000/${id}`);
-      const data = await res.data;
-      setHero(data);
-    };
+  const searchSuperHeros = async () => {
+    const hero = await axios.get(`http://localhost:5000/${term}`);
+    console.log(hero);
+    if (hero) {
+      const newHeros = [...heros, hero];
+      setHeros(newHeros);
+      setTerm('');
+    }
+  };
 
-    fetchSuperhero(211);
-  }, []);
+  const handleSubmit = (e, term) => {
+    e.preventDefault();
+    searchSuperHeros(term);
+    setTerm('');
+  };
 
-  console.log(hero);
+  console.log(heros);
 
-  if (!hero) {
+  if (!heros) {
     return (
       <div className="loading-container">
         <img src={Loading} alt="" className="loading"></img>
@@ -35,13 +39,19 @@ const Home = () => {
       <div className="search-container">
         <h1 className="search-title">Create your Hero's team</h1>
         <div className="search-container-input">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search Hero ... "
-            autoFocus
-          />
-          <div className="fa fa-search search-icon"></div>
+          <form onSubmit={handleSubmit}>
+            <input
+              value={term}
+              type="text"
+              className="search-input"
+              placeholder="Search Hero ... "
+              autoFocus
+              onChange={(e) => setTerm(e.target.value)}
+            />
+          </form>
+          <div
+            className="fa fa-search search-icon"
+            onClick={() => searchSuperHeros(term)}></div>
         </div>
       </div>
     </Auth>

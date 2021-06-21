@@ -6,7 +6,6 @@ const Auth = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('user');
-    console.log(token);
     if (!token) {
       history.push('/login');
     }
