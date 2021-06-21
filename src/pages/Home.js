@@ -3,6 +3,7 @@ import Auth from './Auth';
 import axios from 'axios';
 import Loading from '../images/loading.gif';
 import '../styles/Home.scss';
+import HeroCard from '../components/HeroCard';
 
 const Home = () => {
   const [term, setTerm] = useState('');
@@ -53,6 +54,14 @@ const Home = () => {
             className="fa fa-search search-icon"
             onClick={() => searchSuperHeros(term)}></div>
         </div>
+      </div>
+      <div className="container">
+        {heros.length > 0 &&
+          heros.map((hero, i) => (
+            <div key={i}>
+              <HeroCard hero={hero} />
+            </div>
+          ))}
       </div>
     </Auth>
   );

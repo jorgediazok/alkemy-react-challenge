@@ -67,3 +67,18 @@ body {
     margin-left: 240px;
   }
 }
+
+.container {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+  transition: all 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  @media screen and (max-width: 650px) {
+    flex-wrap: wrap;
+  }
+}
