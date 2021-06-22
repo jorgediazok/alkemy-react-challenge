@@ -1,6 +1,6 @@
 //Routing
 import { createBrowserHistory } from 'history';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 //Pages
 import Home from './pages/Home';
