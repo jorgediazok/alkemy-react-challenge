@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import Auth from './Auth';
 import axios from 'axios';
-import Loading from '../images/loading.gif';
-import debounce from 'lodash.debounce';
+import Auth from './Auth';
+import Search from '../components/Search';
+import data from '../herosNames.json';
 import '../styles/Home.scss';
 import HeroCard from '../components/HeroCard';
 
 const Home = () => {
-  const [term, setTerm] = useState('');
+  //STATES
   const [heros, setHeros] = useState([]);
+  const [term, setTerm] = useState('');
+
+  //CALLING TO THE API
 
   const searchSuperHeros = async () => {
     const hero = await axios.get(`http://localhost:5000/${term}`);
@@ -20,52 +23,17 @@ const Home = () => {
     }
   };
 
-  const handleTerm = debounce((text) => {
-    setTerm(text);
-  }, 1000);
-
-  const handleSubmit = (e, term) => {
-    e.preventDefault();
-    searchSuperHeros(term);
-    setTerm('');
-  };
-
-  console.log(heros);
-
-  if (!heros) {
-    return (
-      <div className="loading-container">
-        <img src={Loading} alt="" className="loading"></img>
-      </div>
-    );
-  }
-
   return (
     <Auth>
       <div className="search-container">
         <h1 className="search-title">Create your Hero's team</h1>
-        <div className="search-container-input">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search Hero ... "
-              autoFocus
-              onChange={(e) => handleTerm(e.target.value)}
-            />
-          </form>
-          <div
-            className="fa fa-search search-icon"
-            onClick={() => searchSuperHeros(term)}></div>
-        </div>
-        <div className="search-result">
-          {heros.length > 0 &&
-            heros.map((hero, i) => (
-              <p className="search-item" key={i}>
-                {hero.data.results[0].name}
-              </p>
-            ))}
-        </div>
+        <Search
+          data={data}
+          searchSuperHeros={searchSuperHeros}
+          term={term}
+          setTerm={setTerm}
+          heros={heros}
+        />
       </div>
       <div className="container-cards">
         {heros.length > 0 &&
