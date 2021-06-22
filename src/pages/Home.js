@@ -22,7 +22,7 @@ const Home = () => {
 
   const handleTerm = debounce((text) => {
     setTerm(text);
-  }, 500);
+  }, 1000);
 
   const handleSubmit = (e, term) => {
     e.preventDefault();
