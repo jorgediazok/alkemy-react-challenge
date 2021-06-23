@@ -24,7 +24,6 @@ const Home = () => {
     const hero = await axios.get(`http://localhost:5000/${term}`);
     if (hero) {
       const newHeros = [...heros, hero];
-      console.log(newHeros);
       setHeros(newHeros);
     }
   };
@@ -54,9 +53,11 @@ const Home = () => {
       </div>
       <div className="container-cards">
         {heros.length > 0 &&
-          heros.map((hero, index) => (
-            <HeroCard hero={hero} key={index} index={index} />
-          ))}
+          heros.map((hero) =>
+            hero.data.results.map((data) => (
+              <HeroCard key={data.id} data={data} />
+            ))
+          )}
       </div>
     </Auth>
   );

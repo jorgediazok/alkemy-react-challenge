@@ -74,7 +74,8 @@ body {
   top: 160px;
   min-width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   background-color: #efefef;
 

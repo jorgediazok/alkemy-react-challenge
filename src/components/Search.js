@@ -11,6 +11,7 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
   const handleSubmit = (e, term) => {
     e.preventDefault();
     searchSuperHeros(term);
+    setSuggest([]);
     setTerm('');
   };
 
@@ -21,9 +22,13 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
 
     const regex = new RegExp(`^${searchValue}`, `i`);
     suggestion = data.sort().filter((option) => regex.test(option.name));
-    console.log(suggestion);
-    setSuggest(suggestion);
-    setTerm(searchValue);
+    if (searchValue === '') {
+      setSuggest([]);
+      setTerm('');
+    } else {
+      setSuggest(suggestion);
+      setTerm(searchValue);
+    }
   }, 1000);
 
   return (
@@ -40,16 +45,16 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
         </form>
         <div
           className="fa fa-search search-icon"
-          onClick={() => searchSuperHeros(term)}></div>
+          onClick={() => searchSuperHeros(term) && setSuggest([])}></div>
       </div>
       <div className="search-result">
         {suggest.map(
-          (value, i) =>
+          (value) =>
             suggest !== 0 && (
               <div
                 className="search-item"
                 key={value.id}
-                onClick={() => searchSuperHeros(value.id)}>
+                onClick={() => searchSuperHeros(term) && setSuggest([])}>
                 {value.name}
               </div>
             )

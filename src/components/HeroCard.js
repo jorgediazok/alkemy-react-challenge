@@ -1,16 +1,22 @@
 import React from 'react';
 import '../styles/HeroCard.scss';
 
-const HeroCard = ({ hero, index }) => {
+const HeroCard = ({ data }) => {
+  // const [cardFlipped, setCardFlipped] = useState(false); PARA FLIP CARDS
+
+  // const flipCard = () => {
+  //   setCardFlipped(true);
+  // };
+
   return (
     <div className="cards-container">
       <div className="card">
-        <img src={hero.data.results[index].image.url} alt="" />
+        <img src={data.image.url} alt="" />
         <div className="details">
-          <h2 className="name">{hero.data.results[index].name}</h2>
-          <div className="name">
-            <p></p>
-          </div>
+          <h2 className="name">{data.name}</h2>
+        </div>
+        <div className="card-back middle">
+          <div className="card-back-content"></div>
         </div>
       </div>
     </div>
