@@ -1,40 +1,30 @@
 import React, { useState } from 'react';
-import Loading from '../images/loading.gif';
+
 import debounce from 'lodash.debounce';
 import '../styles/Search.scss';
 
 const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
-  const [searchText, setSearchText] = useState(''); //Es lo mismo que setterm?
+  //STATES
   const [suggest, setSuggest] = useState([]);
 
+  //SUBMIT FORM
   const handleSubmit = (e, term) => {
     e.preventDefault();
     searchSuperHeros(term);
     setTerm('');
   };
 
+  //HANDLE SEARCH
   const handleSearch = debounce((e) => {
     let searchValue = e.target.value;
-    // let suggestion = [];
-    // if (searchValue.length > 0) {
-    //   suggestion = data
-    //     .sort()
-    //     .filter((e) => e.toLowerCase().includes(searchValue.toLowerCase()));
-    // }
-    // console.log(suggestion);
-    // setSuggest(suggestion);
+    let suggestion = [];
+
+    const regex = new RegExp(`^${searchValue}`, `i`);
+    suggestion = data.sort().filter((option) => regex.test(option.name));
+    console.log(suggestion);
+    setSuggest(suggestion);
     setTerm(searchValue);
   }, 1000);
-
-  console.log(heros);
-
-  if (!heros) {
-    return (
-      <div className="loading-container">
-        <img src={Loading} alt="" className="loading"></img>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -53,11 +43,17 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
           onClick={() => searchSuperHeros(term)}></div>
       </div>
       <div className="search-result">
-        {data.map((value, i) => (
-          <div className="search-item" key={i}>
-            {value.name}
-          </div>
-        ))}
+        {suggest.map(
+          (value, i) =>
+            suggest !== 0 && (
+              <div
+                className="search-item"
+                key={value.id}
+                onClick={() => searchSuperHeros(value.id)}>
+                {value.name}
+              </div>
+            )
+        )}
       </div>
     </>
   );

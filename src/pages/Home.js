@@ -1,27 +1,44 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Loading from '../images/loading.gif';
+
+//PROTECTION OF ROUTES
 import Auth from './Auth';
+
+//COMPONENTS
 import Search from '../components/Search';
-import data from '../herosNames.json';
 import '../styles/Home.scss';
 import HeroCard from '../components/HeroCard';
 
+//DATA
+import data from '../herosNames.json';
+
 const Home = () => {
   //STATES
-  const [heros, setHeros] = useState([]);
   const [term, setTerm] = useState('');
+  const [heros, setHeros] = useState([]);
 
   //CALLING TO THE API
 
   const searchSuperHeros = async () => {
     const hero = await axios.get(`http://localhost:5000/${term}`);
-    console.log(hero);
     if (hero) {
       const newHeros = [...heros, hero];
+      console.log(newHeros);
       setHeros(newHeros);
-      setTerm('');
     }
   };
+
+  console.log(heros);
+
+  //LOADING
+  if (!heros) {
+    return (
+      <div className="loading-container">
+        <img src={Loading} alt="" className="loading"></img>
+      </div>
+    );
+  }
 
   return (
     <Auth>
@@ -37,7 +54,9 @@ const Home = () => {
       </div>
       <div className="container-cards">
         {heros.length > 0 &&
-          heros.map((hero, i) => <HeroCard hero={hero} key={i} />)}
+          heros.map((hero, index) => (
+            <HeroCard hero={hero} key={index} index={index} />
+          ))}
       </div>
     </Auth>
   );

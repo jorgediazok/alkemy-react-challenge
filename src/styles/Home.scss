@@ -26,6 +26,7 @@ body {
 }
 
 .search-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,53 +69,16 @@ body {
     margin-left: 240px;
   }
 }
-
 .container-cards {
+  position: absolute;
+  top: 160px;
   min-width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: -200px;
-  overflow-x: hidden;
   background-color: #efefef;
 
   @media screen and (max-width: 650px) {
     flex-wrap: wrap;
-  }
-}
-
-//DATA UNDER INPUT
-.search-result {
-  margin-top: 5px;
-  border-radius: 5px;
-  width: 500px;
-  height: 200px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  overflow: hidden;
-  overflow-y: auto;
-  z-index: 100;
-
-  @media screen and (max-width: 650px) {
-    width: 280px;
-    margin-top: 20px;
-  }
-}
-
-.search-result::-webkit-scrollbar {
-  display: none;
-}
-
-.search-item {
-  width: 100%;
-  margin-left: 3px;
-  display: flex;
-  align-items: center;
-  color: black;
-  cursor: pointer;
-
-  &:hover {
-    width: 100%;
-    background-color: #efefef;
   }
 }
