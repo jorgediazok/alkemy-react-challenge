@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #efefef !important;
+  height: 10px;
+}
+
+.btn-nav {
+  @media screen and(max-width: 650px) {
+    padding: 3px;
+    margin-top: 5px !important;
+    margin-right: center;
+  }
+
+  &:hover {
+    background-color: #191919;
+  }
+}

@@ -6,6 +6,7 @@ import Loading from '../images/loading.gif';
 import Auth from './Auth';
 
 //COMPONENTS
+import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import '../styles/Home.scss';
 import HeroCard from '../components/HeroCard';
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <Auth>
+      <Navbar />
       <div className="search-container">
         <h1 className="search-title">Create your Hero's team</h1>
         <Search

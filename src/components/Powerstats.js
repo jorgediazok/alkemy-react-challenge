@@ -14,7 +14,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.combat}
           aria-valuemin="0"
           aria-valuemax="100">
-          Combat
+          Combat: {data.powerstats.combat + '%'}
         </div>
       </div>
 
@@ -26,7 +26,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.durability}
           aria-valuemin="0"
           aria-valuemax="100">
-          Durability
+          Durability: {data.powerstats.durability + '%'}
         </div>
       </div>
 
@@ -38,7 +38,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.intelligence}
           aria-valuemin="0"
           aria-valuemax="100">
-          Intelligence
+          Intelligence: {data.powerstats.intelligence + '%'}
         </div>
       </div>
 
@@ -50,7 +50,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.power}
           aria-valuemin="0"
           aria-valuemax="100">
-          Power
+          Power: {data.powerstats.power + '%'}
         </div>
       </div>
 
@@ -62,7 +62,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.speed}
           aria-valuemin="0"
           aria-valuemax="100">
-          Speed
+          Speed: {data.powerstats.speed + '%'}
         </div>
       </div>
 
@@ -74,7 +74,7 @@ const Powerstats = ({ data }) => {
           aria-valuenow={data.powerstats.strength}
           aria-valuemin="0"
           aria-valuemax="100">
-          Strength
+          Strength: {data.powerstats.strength + '%'}
         </div>
       </div>
     </div>

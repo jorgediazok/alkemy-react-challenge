@@ -1,7 +1,7 @@
 .card {
-  width: 205px;
-  height: 400px;
-  margin: 10px;
+  width: 188px;
+  height: 380px;
+  margin: 8px;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -81,7 +81,7 @@
 
 @media (max-width: 650px) {
   .card {
-    width: auto;
+    width: 300px;
   }
   .details h2,
   .details p {
