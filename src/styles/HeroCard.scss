@@ -7,8 +7,21 @@
   position: relative;
   opacity: 1;
   overflow: hidden;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lobster', serif;
   border-radius: 10px;
+}
+
+.card-buttons {
+  min-width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.card-button-add,
+.card-button-remove {
+  width: 100%;
+  z-index: 1;
+  border-radius: 0;
 }
 
 .card img {
@@ -26,20 +39,23 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px 10px;
-  color: #191919;
-  background: linear-gradient(#b88746, #fdf5a6);
+  color: #efefef;
+  background: #292b2c;
   align-items: center;
   text-align: center;
   width: 100%;
   transform: translateY(100%);
   transition: all 0.3s;
+  @media screen and (max-width: 650px) {
+    transform: none;
+  }
 }
 
 .details h2 {
   text-transform: uppercase;
   font-size: 18px;
   font-family: 'Playfair Display', serif;
-  color: #191919;
+  color: #efefef;
   font-weight: 700;
   text-align: center;
   letter-spacing: 1px;
@@ -61,19 +77,6 @@
 
 .name {
   font-weight: 600;
-}
-
-.card-hidden {
-  position: absolute;
-  top: 38px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.title-hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 @media (max-width: 650px) {

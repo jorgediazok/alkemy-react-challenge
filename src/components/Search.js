@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 
+//DEBOUNCE
 import debounce from 'lodash.debounce';
+
+//STYLES
 import '../styles/Search.scss';
 
-const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
+//ICONS
+import { GoSearch } from 'react-icons/go';
+import { GrClose } from 'react-icons/gr';
+
+const Search = ({ data, searchSuperHeros, term, setTerm }) => {
   //STATES
   const [suggest, setSuggest] = useState([]);
 
   //SUBMIT FORM
-  const handleSubmit = (e, term) => {
+  const handleSubmit = async (e, term) => {
     e.preventDefault();
-    searchSuperHeros(term);
+    await searchSuperHeros(term);
     setSuggest([]);
     setTerm('');
   };
@@ -31,11 +38,20 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
     }
   }, 1000);
 
+  //CLEAR INPUT
+
+  const clearInput = () => {
+    setSuggest([]);
+    document.getElementById('input').value = '';
+  };
+
   return (
     <>
       <div className="search-container-input">
         <form onSubmit={handleSubmit}>
           <input
+            id="input"
+            name="search"
             type="text"
             className="search-input"
             placeholder="Search Hero ... "
@@ -43,10 +59,15 @@ const Search = ({ data, searchSuperHeros, term, setTerm, heros }) => {
             onChange={handleSearch}
           />
         </form>
-        <div
-          className="fa fa-search search-icon"
-          onClick={() => searchSuperHeros(term) && setSuggest([])}></div>
+        <div className="search-icon">
+          {term === '' ? (
+            <GoSearch onClick={() => searchSuperHeros(term)} />
+          ) : (
+            <GrClose onClick={clearInput} />
+          )}
+        </div>
       </div>
+
       <div className="search-result">
         {suggest.map(
           (value) =>

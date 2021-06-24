@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .search-container-input {
@@ -60,18 +60,18 @@ body {
   position: absolute;
   font-size: 1.6em;
   margin-left: 450px;
-  margin-top: 10px;
+  margin-top: 6px;
   cursor: pointer;
 
   @media screen and (max-width: 650px) {
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-top: 18px;
     margin-left: 240px;
   }
 }
 .container-cards {
   position: absolute;
-  top: 160px;
+  top: 140px;
   min-width: 100%;
   display: flex;
   justify-content: center;
