@@ -1,0 +1,15 @@
+.powerstats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.progress {
+  margin: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.progress-bar {
+  text-align: center;
+}

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+//COMPONENTS
+import Powerstats from './Powerstats';
+
 //STYLES
 import '../styles/HeroCard.scss';
 
@@ -13,6 +16,8 @@ const HeroCard = ({ data }) => {
     // setCardFlipped(true);
   };
 
+  console.log(data);
+
   return (
     <div className="cards-container">
       <div className="card" onClick={flipCard}>
@@ -23,17 +28,7 @@ const HeroCard = ({ data }) => {
         <img src={data.image.url} alt="" />
         <div className="details">
           <h2 className="name">{data.name}</h2>
-          <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              style={{ width: '100%' }}
-              aria-valuenow="50"
-              aria-valuemin="0"
-              aria-valuemax="100">
-              25%
-            </div>
-          </div>
+          <Powerstats data={data} />
         </div>
       </div>
     </div>
