@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
+import '../styles/HeroHomeCards.scss';
 
 //COMPONENTS
 import Powerstats from './Powerstats';
 
 //STYLES
-import '../styles/HeroCard.scss';
+import '../styles/HeroSearchCards.scss';
 
-const HeroCard = ({ data }) => {
-  //const [cardFlipped, setCardFlipped] = useState(false);
+const HeroSearchCards = ({ data }) => {
+  const [cardFlipped, setCardFlipped] = useState(false);
 
   //FLIP CARD
-
   const flipCard = () => {
     console.log('card was flipped');
     // setCardFlipped(true);
@@ -19,11 +19,10 @@ const HeroCard = ({ data }) => {
   console.log(data);
 
   return (
-    <div className="cards-container">
+    <div>
       <div className="card" onClick={flipCard}>
         <div className="card-buttons">
           <button className="btn btn-dark card-button-add">+</button>
-          <button className="btn btn-danger card-button-remove">-</button>
         </div>
         <img src={data.image.url} alt="" />
         <div className="details">
@@ -35,4 +34,4 @@ const HeroCard = ({ data }) => {
   );
 };
 
-export default HeroCard;
+export default HeroSearchCards;

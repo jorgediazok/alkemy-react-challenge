@@ -73,15 +73,14 @@ body {
 .container-cards {
   position: absolute;
   top: 140px;
-  min-width: 100%;
+  max-width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: start;
   align-items: center;
   background-color: #efefef;
+  overflow-x: auto;
 
   @media screen and (max-width: 650px) {
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
   }
 }

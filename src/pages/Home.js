@@ -9,7 +9,7 @@ import Auth from './Auth';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import '../styles/Home.scss';
-import HeroCard from '../components/HeroCard';
+import HeroSearchCards from '../components/HeroSearchCards';
 
 //DATA
 import data from '../herosNames.json';
@@ -24,7 +24,7 @@ const Home = () => {
   const searchSuperHeros = async () => {
     const hero = await axios.get(`http://localhost:5000/${term}`);
     if (hero) {
-      const newHeros = [...heros, hero];
+      const newHeros = [...heros, hero].reverse();
       setHeros(newHeros);
     }
   };
@@ -57,7 +57,7 @@ const Home = () => {
         {heros.length > 0 &&
           heros.map((hero) =>
             hero.data.results.map((data) => (
-              <HeroCard key={data.id} data={data} />
+              <HeroSearchCards key={data.id} data={data} />
             ))
           )}
       </div>

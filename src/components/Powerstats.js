@@ -6,7 +6,7 @@ import '../styles/PowerStats.scss';
 const Powerstats = ({ data }) => {
   return (
     <div className="powerstats-container">
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -18,7 +18,7 @@ const Powerstats = ({ data }) => {
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -30,7 +30,7 @@ const Powerstats = ({ data }) => {
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -42,7 +42,7 @@ const Powerstats = ({ data }) => {
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -54,7 +54,7 @@ const Powerstats = ({ data }) => {
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -66,7 +66,7 @@ const Powerstats = ({ data }) => {
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '180px' }}>
+      <div className="progress" style={{ height: '15px', width: '170px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
