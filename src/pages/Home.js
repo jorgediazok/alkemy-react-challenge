@@ -8,8 +8,8 @@ import Auth from './Auth';
 //COMPONENTS
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
-import '../styles/Home.scss';
 import HeroSearchCards from '../components/HeroSearchCards';
+import '../styles/Home.scss';
 
 //DATA
 import data from '../herosNames.json';
@@ -28,8 +28,6 @@ const Home = () => {
       setHeros(newHeros);
     }
   };
-
-  console.log(heros);
 
   //LOADING
   if (!heros) {

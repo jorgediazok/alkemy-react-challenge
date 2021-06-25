@@ -9,6 +9,11 @@
   overflow: hidden;
   font-family: 'Lobster', serif;
   border-radius: 10px;
+
+  @media screen and (max-width: 650px) {
+    width: 300px;
+    margin-left: 20px;
+  }
 }
 
 .card-buttons {
@@ -60,10 +65,16 @@
   text-align: center;
   letter-spacing: 1px;
   margin-bottom: 7px;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
 
 .details p {
   font-style: italic;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
 
 .card:hover .details,
@@ -79,13 +90,6 @@
   font-weight: 600;
 }
 
-@media (max-width: 650px) {
-  .card {
-    width: 300px;
-    margin-left: 20px;
-  }
-  .details h2,
-  .details p {
-    font-size: 18px;
-  }
+.borderAdd {
+  border: 5px solid #5cb85c;
 }
