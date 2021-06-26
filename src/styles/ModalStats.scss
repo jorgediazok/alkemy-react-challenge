@@ -24,27 +24,29 @@
   padding: 25px;
 }
 
-.modalContainer .title {
+.modalContainer .title h1 {
   display: inline-block;
   text-align: center;
-  margin-top: -30px;
   text-decoration: underline;
+  font-size: 30px;
 }
 
-.modalContainer .titleCloseBtn {
-  cursor: pointer;
-}
-
-.modalContainer .titleCloseBtn button {
-  cursor: pointer;
-}
-
-.modalContainer .body {
-  margin-top: 10px;
+.modalContainer .body h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-top: -10px;
 }
 
 .modalContainer .body p {
-  font-weight: bold;
+  text-align: center;
+}
+
+.modalContainer .body .height {
+  margin-top: 10px;
+}
+
+.modalContainer .body .weight {
+  margin-top: 10px;
 }
 
 .modalContainer .body span {

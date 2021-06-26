@@ -43,6 +43,18 @@ const ModalStats = ({ closeModalStats, heros }) => {
     })
     .reduce((a, b) => a + b);
 
+  const heightStats = heros
+    .map((hero) => {
+      return parseInt(hero.appearance.height[1]) / heros.length;
+    })
+    .reduce((a, b) => a + b);
+
+  const weightStats = heros
+    .map((hero) => {
+      return parseInt(hero.appearance.weight[1]) / heros.length;
+    })
+    .reduce((a, b) => a + b);
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -136,6 +148,10 @@ const ModalStats = ({ closeModalStats, heros }) => {
               </div>
             </div>
           </div>
+          <h1 className="height">Height Average</h1>
+          <p>{heightStats.toFixed(2)} Centimeters</p>
+          <h1 className="weight">Weight Average</h1>
+          <p>{weightStats.toFixed(2)} Kilograms</p>
         </div>
 
         <div className="footer">
