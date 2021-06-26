@@ -1,4 +1,8 @@
 import React from 'react';
+
+//ICON
+import { GrClose } from 'react-icons/gr';
+
 import '../styles/Modal.scss';
 
 const Modal = ({ closeModal, hero }) => {
@@ -6,7 +10,9 @@ const Modal = ({ closeModal, hero }) => {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
-          <button onClick={() => closeModal(false)}>X</button>
+          <button onClick={() => closeModal(false)}>
+            <GrClose />
+          </button>
         </div>
         <div className="title">
           <h1>{hero.name}</h1>

@@ -1,0 +1,22 @@
+.notFound_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #efefef;
+}
+
+.notFound_objects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -60px;
+}
+
+.notFound_image {
+  max-height: 350px;
+}
+
+.goHome {
+  margin-top: 10px;
+}
