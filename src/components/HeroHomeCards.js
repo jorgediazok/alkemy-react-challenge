@@ -3,31 +3,39 @@ import '../styles/HeroHomeCards.scss';
 
 //COMPONENTS
 import Powerstats from './Powerstats';
+import Modal from '../components/Modal';
 
 //STYLES
 import '../styles/HeroSearchCards.scss';
 
-const HeroSearchCards = ({ data }) => {
-  const [cardFlipped, setCardFlipped] = useState(false);
+const HeroSearchCards = ({ onDelete, hero }) => {
+  const [openModal, setOpenModal] = useState(false);
 
-  //FLIP CARD
-  const flipCard = () => {
-    console.log('card was flipped');
-    // setCardFlipped(true);
-  };
-
-  console.log(data);
+  console.log(hero);
 
   return (
     <div>
-      <div className="card" onClick={flipCard}>
-        <div className="card-buttons">
-          <button className="btn btn-dark card-button-add">+</button>
-        </div>
-        <img src={data.image.url} alt="" />
-        <div className="details">
-          <h2 className="name">{data.name}</h2>
-          <Powerstats data={data} />
+      {openModal && <Modal closeModal={setOpenModal} />}
+      <div className="card-home">
+        <div className="card-front">
+          <div className="card-buttons">
+            <button
+              className="btn btn-dark card-button-add"
+              onClick={() => setOpenModal(true)}>
+              <i className="fas fa-info-circle"></i>
+            </button>
+            <button
+              data-id={hero.id}
+              className="btn btn-danger card-button-add"
+              onClick={onDelete}>
+              <i className="fas fa-trash"></i>
+            </button>
+          </div>
+          <img src={hero.image.url} alt="" />
+          <div className="details">
+            <h2 className="name">{hero.name}</h2>
+            {/* <Powerstats data={data} /> */}
+          </div>
         </div>
       </div>
     </div>

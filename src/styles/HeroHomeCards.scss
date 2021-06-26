@@ -1,14 +1,19 @@
-.card {
+.card-home {
   width: 188px;
   height: 380px;
   margin: 8px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   opacity: 1;
   overflow: hidden;
   font-family: 'Lobster', serif;
   border-radius: 10px;
+  transition: transform 1s ease-in-out;
+  @media screen and (max-width: 650px) {
+    width: 300px;
+    margin-left: 20px;
+  }
 }
 
 .card-buttons {
@@ -24,7 +29,7 @@
   border-radius: 0;
 }
 
-.card img {
+.card-home img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -46,9 +51,6 @@
   width: 100%;
   transform: translateY(100%);
   transition: all 0.3s;
-  @media screen and (max-width: 650px) {
-    transform: none;
-  }
 }
 
 .details h2 {
@@ -66,25 +68,25 @@
   font-style: italic;
 }
 
-.card:hover .details,
-.card:hover .p {
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-home:hover .details,
+.card-home:hover .p {
   transform: none;
 }
 
-.card:hover img {
+.card-home:hover img {
   transform: scale(1.2);
 }
 
 .name {
   font-weight: 600;
-}
-
-@media (max-width: 650px) {
-  .card {
-    width: 300px;
-  }
-  .details h2,
-  .details p {
-    font-size: 18px;
-  }
 }

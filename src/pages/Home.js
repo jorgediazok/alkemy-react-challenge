@@ -9,6 +9,7 @@ import Auth from './Auth';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import HeroSearchCards from '../components/HeroSearchCards';
+import HeroHomeCards from '../components/HeroHomeCards';
 import '../styles/Home.scss';
 
 //DATA
@@ -22,11 +23,21 @@ const Home = () => {
   //CALLING TO THE API
 
   const searchSuperHeros = async () => {
-    const hero = await axios.get(`http://localhost:5000/${term}`);
-    if (hero) {
-      const newHeros = [...heros, hero].reverse();
+    const response = await axios.get(`http://localhost:5000/${term}`);
+    console.log(response);
+    if (response && response.data && response.data.results) {
+      const newHeros = [...heros, ...response.data.results].reverse();
       setHeros(newHeros);
     }
+  };
+
+  //DELETE HERO
+
+  const handleDelete = (e) => {
+    let newListOfHeros = heros.filter(
+      (hero) => hero.id !== e.target.dataset.id
+    );
+    setHeros(newListOfHeros);
   };
 
   //LOADING
@@ -53,11 +64,15 @@ const Home = () => {
       </div>
       <div className="container-cards">
         {heros.length > 0 &&
-          heros.map((hero) =>
-            hero.data.results.map((data) => (
-              <HeroSearchCards key={data.id} data={data} />
-            ))
-          )}
+          heros.map((hero) => (
+            <HeroHomeCards
+              key={hero.id}
+              data={data}
+              hero={hero}
+              onDelete={handleDelete}
+              data-id={hero.id}
+            />
+          ))}
       </div>
     </Auth>
   );

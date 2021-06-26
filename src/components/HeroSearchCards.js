@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //COMPONENTS
-import Modal from '../components/Modal';
+// import Modal from '../components/Modal';
 
 //STYLES
 import '../styles/HeroSearchCards.scss';

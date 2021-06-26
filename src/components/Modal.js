@@ -1,30 +1,25 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React from 'react';
+import '../styles/Modal.scss';
 
-const ModalHero = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+const Modal = ({ closeModal }) => {
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+    <div className="modalBackground">
+      <div className="modalContainer">
+        <div className="titleCloseBtn">
+          <button onClick={() => closeModal(false)}>X</button>
+        </div>
+        <div className="title">
+          <h1>HERO DETAILS</h1>
+        </div>
+        <div className="body">
+          <p>here go the hero details</p>
+        </div>
+        <div className="footer">
+          <button onClick={() => closeModal(false)}>Close</button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ModalHero;
+export default Modal;
