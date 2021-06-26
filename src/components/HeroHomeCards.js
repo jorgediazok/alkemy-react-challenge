@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import '../styles/HeroHomeCards.scss';
 
 //COMPONENTS
 import Powerstats from './Powerstats';
 import Modal from '../components/Modal';
 
 //STYLES
-import '../styles/HeroSearchCards.scss';
+import '../styles/HeroHomeCards.scss';
 
-const HeroSearchCards = ({ onDelete, hero }) => {
+const HeroHomeCards = ({ onDelete, hero }) => {
   const [openModal, setOpenModal] = useState(false);
 
   console.log(hero);
 
   return (
     <div>
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={setOpenModal} hero={hero} />}
       <div className="card-home">
         <div className="card-front">
           <div className="card-buttons">
@@ -34,7 +33,7 @@ const HeroSearchCards = ({ onDelete, hero }) => {
           <img src={hero.image.url} alt="" />
           <div className="details">
             <h2 className="name">{hero.name}</h2>
-            {/* <Powerstats data={data} /> */}
+            <Powerstats data={hero} />
           </div>
         </div>
       </div>
@@ -42,4 +41,4 @@ const HeroSearchCards = ({ onDelete, hero }) => {
   );
 };
 
-export default HeroSearchCards;
+export default HeroHomeCards;

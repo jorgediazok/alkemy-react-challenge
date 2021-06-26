@@ -1,10 +1,12 @@
 .modalBackground {
-  z-index: 100000000000000;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.9;
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +14,7 @@
 
 .modalContainer {
   width: 500px;
+  opacity: 1;
   height: 500px;
   border-radius: 12px;
   background-color: white;
@@ -24,7 +27,24 @@
 .modalContainer .title {
   display: inline-block;
   text-align: center;
+  margin-top: -30px;
+  text-decoration: underline;
+}
+
+.modalContainer .titleCloseBtn {
+  cursor: pointer;
+}
+
+.modalContainer .body {
   margin-top: 10px;
+}
+
+.modalContainer .body p {
+  font-weight: bold;
+}
+
+.modalContainer .body span {
+  font-weight: 500;
 }
 
 .titleCloseBtn {
@@ -33,7 +53,6 @@
 }
 
 .titleCloseBtn button {
-  background-color: transparent;
   border: none;
   font-size: 25px;
   text-align: center;
@@ -51,7 +70,6 @@
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: blue;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;

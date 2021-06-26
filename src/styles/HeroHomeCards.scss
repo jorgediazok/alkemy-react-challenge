@@ -62,10 +62,16 @@
   text-align: center;
   letter-spacing: 1px;
   margin-bottom: 7px;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
 
 .details p {
   font-style: italic;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
 
 .card-front {

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Hero from './pages/Hero';
 // import PageNotFound from './pages/PageNotFound';
 
 const history = createBrowserHistory();
@@ -16,7 +15,6 @@ function App() {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/" exact component={Home} />
-        <Route path="/:id" component={Hero} />
         {/* <Route path="*" component={PageNotFound} /> */}
       </Switch>
     </Router>

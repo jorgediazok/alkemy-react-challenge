@@ -43,7 +43,7 @@ const Login = () => {
   const [error, setError] = useState(null);
 
   const notify = () => {
-    toast('Login Succesful', { position: toast.POSITION.TOP_RIGHT });
+    toast('Login Succesful', { position: toast.POSITION.TOP_LEFT });
   };
 
   //MAKE REQUEST TO ALKEMY TO GET ACCESS TOKEN

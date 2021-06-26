@@ -8,7 +8,7 @@ import Auth from './Auth';
 //COMPONENTS
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
-import HeroSearchCards from '../components/HeroSearchCards';
+// import HeroSearchCards from '../components/HeroSearchCards';
 import HeroHomeCards from '../components/HeroHomeCards';
 import '../styles/Home.scss';
 
