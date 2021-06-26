@@ -51,7 +51,7 @@ const Home = () => {
 
   return (
     <Auth>
-      <Navbar />
+      <Navbar heros={heros} />
       <div className="search-container">
         <h1 className="search-title">Create your Hero's team</h1>
         <Search
