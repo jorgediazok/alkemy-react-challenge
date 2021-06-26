@@ -51,7 +51,7 @@ const HeroHomeCards = ({ onDelete, hero }) => {
         <img src={hero.image.url} alt="" onClick={addToTeam} />
         <div className="details">
           <h2 className="name">{hero.name}</h2>
-          <Powerstats data={hero} />
+          <Powerstats hero={hero} />
         </div>
       </div>
     </div>

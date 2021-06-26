@@ -3,7 +3,7 @@ import axios from 'axios';
 import Loading from '../images/loading.gif';
 
 //PROTECTION OF ROUTES
-import Auth from './Auth';
+import Auth from '../auth/Auth';
 
 //COMPONENTS
 import Navbar from '../components/Navbar';
@@ -13,7 +13,7 @@ import HeroHomeCards from '../components/HeroHomeCards';
 import '../styles/Home.scss';
 
 //DATA
-import data from '../herosNames.json';
+import data from '../data/herosNames.json';
 
 const Home = () => {
   //STATES
@@ -24,7 +24,6 @@ const Home = () => {
 
   const searchSuperHeros = async () => {
     const response = await axios.get(`http://localhost:5000/${term}`);
-    console.log(response);
     if (response && response.data && response.data.results) {
       const newHeros = [...heros, ...response.data.results].reverse();
       setHeros(newHeros);

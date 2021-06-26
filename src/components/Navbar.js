@@ -5,7 +5,7 @@ import '../styles/Navbar.scss';
 //COMPONENTES
 import ModalStats from './ModalStats';
 
-const Navbar = () => {
+const Navbar = ({ heros }) => {
   const [openModalStats, setOpenModalStats] = useState(false);
   const history = useHistory();
 
@@ -16,7 +16,9 @@ const Navbar = () => {
 
   return (
     <>
-      {openModalStats && <ModalStats closeModalStats={setOpenModalStats} />}
+      {openModalStats && (
+        <ModalStats closeModalStats={setOpenModalStats} heros={heros} />
+      )}
       <nav className="navbar navbar-light bg-light">
         <form className="form-inline">
           <button
