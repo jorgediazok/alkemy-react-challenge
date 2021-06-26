@@ -10,10 +10,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light justify-content-end navbar-collapse">
+    <nav className="navbar navbar-light bg-light">
       <form className="form-inline">
         <button
-          className="btn btn-dark btn-nav m-4 my-2 my-sm-0"
+          className="btn btn-danger btn-nav my-2 my-sm-0"
+          type="submit"
+          onClick={logout}>
+          Team Stats
+        </button>
+        <button
+          className="btn btn-dark btn-nav my-2 my-sm-0"
           type="submit"
           onClick={logout}>
           Logout

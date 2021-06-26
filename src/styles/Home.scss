@@ -25,6 +25,7 @@ body {
   font-family: Lobster;
   @media screen and (max-width: 650px) {
     margin-top: 15px;
+    font-size: 25px;
   }
 }
 
@@ -34,7 +35,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  @media screen and (max-width: 650px) {
+    margin-top: 28px;
+  }
 }
 
 .search-container-input {
@@ -53,6 +57,7 @@ body {
 
   @media screen and (max-width: 650px) {
     width: 300px;
+    height: 35px;
     margin-left: 15px;
   }
 }
@@ -72,7 +77,7 @@ body {
 }
 .container-cards {
   position: absolute;
-  top: 140px;
+  top: 150px;
   max-width: 100%;
   display: flex;
   justify-content: flex-start;
