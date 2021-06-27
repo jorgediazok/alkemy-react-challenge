@@ -8,7 +8,6 @@ import Auth from '../auth/Auth';
 //COMPONENTS
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
-// import HeroSearchCards from '../components/HeroSearchCards';
 import HeroHomeCards from '../components/HeroHomeCards';
 import '../styles/Home.scss';
 
@@ -19,9 +18,9 @@ const Home = () => {
   //STATES
   const [term, setTerm] = useState('');
   const [heros, setHeros] = useState([]);
+  const [teamCurrentMembers, setTeamCurrentMembers] = useState([]);
 
   //CALLING TO THE API
-
   const searchSuperHeros = async () => {
     const response = await axios.get(`http://localhost:5000/${term}`);
     if (response && response.data && response.data.results) {
@@ -30,14 +29,32 @@ const Home = () => {
     }
   };
 
-  //DELETE HERO
+  //ADD TO TEAM
+  const addToTeam = (e) => {
+    if (teamCurrentMembers.length < 6) {
+      const newMember = heros.find((hero) => hero.id === e.target.dataset.id);
+      setTeamCurrentMembers((teamCurrentMembers) => [
+        ...teamCurrentMembers,
+        newMember,
+      ]);
+      console.log(teamCurrentMembers);
+    } else {
+      alert('NO SE PUEDEN AGREGAR MAS');
+    }
 
+    //SHOWMODAL ACA CUANDO LLEGA AL LENGTH DE 6 CON CANCELAR Y ACEPTAR
+  };
+
+  //DELETE FROM TEAM
   const handleDelete = (e) => {
     let newListOfHeros = heros.filter(
       (hero) => hero.id !== e.target.dataset.id
     );
     setHeros(newListOfHeros);
+    setTeamCurrentMembers(newListOfHeros);
   };
+
+  console.log(teamCurrentMembers);
 
   //LOADING
   if (!heros) {
@@ -50,7 +67,7 @@ const Home = () => {
 
   return (
     <Auth>
-      <Navbar heros={heros} />
+      <Navbar heros={heros} team={teamCurrentMembers} />
       <div className="search-container">
         <h1 className="search-title">Create your Hero's team</h1>
         <Search
@@ -69,6 +86,7 @@ const Home = () => {
               data={data}
               hero={hero}
               onDelete={handleDelete}
+              addToTeam={addToTeam}
               data-id={hero.id}
             />
           ))}
