@@ -3,6 +3,10 @@ import React from 'react';
 //ICON
 import { GrClose } from 'react-icons/gr';
 
+//IMAGE
+import Image from '../images/batman.jpg';
+
+//STYLES
 import '../styles/ModalStats.scss';
 
 const ModalStats = ({ closeModalStats, team }) => {
@@ -106,8 +110,11 @@ const ModalStats = ({ closeModalStats, team }) => {
             <div className="title">
               <h1>TEAM STATS</h1>
             </div>
-            <div className="body">
-              <p>No Stats so far.</p>
+            <div className="body-nostats">
+              <img src={Image} alt="" className="batmi" />
+              <p className="nostats-message">
+                No Stats so far. Plese add a Hero.
+              </p>
             </div>
             <div className="footer">
               <button

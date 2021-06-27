@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 //COMPONENTS
 import Powerstats from './Powerstats';
-import Modal from '../components/Modal';
+import ModalInfo from '../components/ModalInfo';
 
 //STYLES
 import '../styles/HeroHomeCards.scss';
@@ -12,13 +12,22 @@ const HeroHomeCards = ({ onDelete, addToTeam, hero }) => {
   const [openModal, setOpenModal] = useState(false);
   const [isActive, setActive] = useState(false);
 
+  const addAndMakeCardActive = (id) => {
+    addToTeam(id);
+    setActive(true);
+  };
+
   return (
     <div>
-      {openModal && <Modal closeModal={setOpenModal} hero={hero} />}
-      <div
-        className={isActive ? 'borderAdd card-home' : 'card-home'}
-        onClick={() => setActive(!isActive)}>
+      {openModal && <ModalInfo closeModal={setOpenModal} hero={hero} />}
+      <div className={isActive ? 'borderAdd card-home' : 'card-home'}>
         <div className="card-buttons">
+          <button className="btn btn-dark card-button-add">
+            <i
+              className="fas fa-user-plus"
+              onClick={addAndMakeCardActive}
+              data-id={hero.id}></i>
+          </button>
           <button
             className="btn btn-dark card-button-add"
             onClick={() => setOpenModal(true)}>
@@ -31,12 +40,7 @@ const HeroHomeCards = ({ onDelete, addToTeam, hero }) => {
             <i className="fas fa-trash"></i>
           </button>
         </div>
-        <img
-          src={hero.image.url}
-          alt=""
-          onClick={addToTeam}
-          data-id={hero.id}
-        />
+        <img src={hero.image.url} alt="" />
         <div className="details">
           <h2 className="name">{hero.name}</h2>
           <Powerstats hero={hero} />

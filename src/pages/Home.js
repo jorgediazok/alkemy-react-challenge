@@ -9,6 +9,7 @@ import Auth from '../auth/Auth';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import HeroHomeCards from '../components/HeroHomeCards';
+import ModalWarning from '../components/ModalWarning';
 import '../styles/Home.scss';
 
 //DATA
@@ -19,6 +20,7 @@ const Home = () => {
   const [term, setTerm] = useState('');
   const [heros, setHeros] = useState([]);
   const [teamCurrentMembers, setTeamCurrentMembers] = useState([]);
+  const [openWarning, setOpenWarning] = useState(false);
 
   //CALLING TO THE API
   const searchSuperHeros = async () => {
@@ -37,12 +39,9 @@ const Home = () => {
         ...teamCurrentMembers,
         newMember,
       ]);
-      console.log(teamCurrentMembers);
     } else {
-      alert('NO SE PUEDEN AGREGAR MAS');
+      setOpenWarning(true);
     }
-
-    //SHOWMODAL ACA CUANDO LLEGA AL LENGTH DE 6 CON CANCELAR Y ACEPTAR
   };
 
   //DELETE FROM TEAM
@@ -53,8 +52,6 @@ const Home = () => {
     setHeros(newListOfHeros);
     setTeamCurrentMembers(newListOfHeros);
   };
-
-  console.log(teamCurrentMembers);
 
   //LOADING
   if (!heros) {
@@ -78,6 +75,7 @@ const Home = () => {
           heros={heros}
         />
       </div>
+      {openWarning && <ModalWarning closeModalWarning={setOpenWarning} />}
       <div className="container-cards">
         {heros.length > 0 &&
           heros.map((hero) => (

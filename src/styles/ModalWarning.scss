@@ -1,0 +1,15 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .message {
+    font-size: 25px;
+  }
+}
+
+.spidy {
+  height: 200px;
+  margin-bottom: 20px;
+}

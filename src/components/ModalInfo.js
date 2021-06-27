@@ -3,9 +3,9 @@ import React from 'react';
 //ICON
 import { GrClose } from 'react-icons/gr';
 
-import '../styles/Modal.scss';
+import '../styles/ModalInfo.scss';
 
-const Modal = ({ closeModal, hero }) => {
+const ModalInfo = ({ closeModal, hero }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -50,4 +50,4 @@ const Modal = ({ closeModal, hero }) => {
   );
 };
 
-export default Modal;
+export default ModalInfo;
