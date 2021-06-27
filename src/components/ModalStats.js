@@ -18,7 +18,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.combat);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const durabilityStats =
@@ -27,7 +27,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.durability);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const intelligenceStats =
@@ -36,7 +36,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.intelligence);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const powerStats =
@@ -45,7 +45,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.power);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const speedStats =
@@ -54,7 +54,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.speed);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const strengthStats =
@@ -63,7 +63,7 @@ const ModalStats = ({ closeModalStats, team }) => {
           .map((hero) => {
             return parseInt(hero.powerstats.strength);
           })
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b) / team.length
       : '';
 
   const heightStats =
@@ -124,11 +124,11 @@ const ModalStats = ({ closeModalStats, team }) => {
               <h1>TEAM STATS</h1>
             </div>
             <div className="body">
-              <h1>PowerStats Combined</h1>
               <div className="powerstats-container">
+                <span className="span-progress">Combat</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -136,12 +136,13 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={combatStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Combat: {combatStats}
+                    {Math.round(combatStats)} %
                   </div>
                 </div>
+                <span className="span-progress">Durability</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -149,12 +150,13 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={durabilityStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Durability: {durabilityStats}
+                    {Math.round(durabilityStats)} %
                   </div>
                 </div>
+                <span className="span-progress">Intelligence</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -162,12 +164,14 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={intelligenceStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Intelligence: {intelligenceStats}
+                    {Math.round(intelligenceStats)} %
                   </div>
                 </div>
+
+                <span className="span-progress">Power</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -175,12 +179,14 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={powerStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Power: {powerStats}
+                    {Math.round(powerStats)} %
                   </div>
                 </div>
+
+                <span className="span-progress">Speed</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -188,12 +194,14 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={speedStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Speed: {speedStats}
+                    {Math.round(speedStats)} %
                   </div>
                 </div>
+
+                <span className="span-progress">Strength</span>
                 <div
                   className="progress"
-                  style={{ height: '15px', width: '170px' }}>
+                  style={{ height: '14px', width: '170px' }}>
                   <div
                     className="progress-bar bg-danger"
                     role="progressbar"
@@ -201,19 +209,23 @@ const ModalStats = ({ closeModalStats, team }) => {
                     aria-valuenow={strengthStats}
                     aria-valuemin="0"
                     aria-valuemax="100">
-                    Strength: {strengthStats}
+                    {Math.round(strengthStats)} %
                   </div>
                 </div>
               </div>
-              <h1 className="height">Height Average</h1>
-              <p>{heightStats.toFixed(2)} Centimeters</p>
-              <h1 className="weight">Weight Average</h1>
-              <p>{weightStats.toFixed(2)} Kilograms</p>
+              <div className="container-height-weight">
+                <h1 className="height">
+                  Height: <span>{heightStats.toFixed(2)} Cms.</span>
+                </h1>
+                <h1 className="weight">
+                  Weight: <span>{weightStats.toFixed(2)} Kgs.</span>
+                </h1>
+              </div>
             </div>
 
             <div className="footer">
               <button
-                className="btn btn-dark"
+                className="btn btn-dark btn-footer"
                 onClick={() => closeModalStats(false)}>
                 Close
               </button>

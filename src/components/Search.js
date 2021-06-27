@@ -19,7 +19,7 @@ const Search = ({ data, searchSuperHeros, term, setTerm }) => {
     e.preventDefault();
     await searchSuperHeros(term);
     setSuggest([]);
-    setTerm('');
+    clearInput();
   };
 
   //HANDLE SEARCH

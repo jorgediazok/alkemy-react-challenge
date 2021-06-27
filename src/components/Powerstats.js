@@ -6,7 +6,8 @@ import '../styles/PowerStats.scss';
 const Powerstats = ({ hero }) => {
   return (
     <div className="powerstats-container">
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Combat</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -14,11 +15,12 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.combat}
           aria-valuemin="0"
           aria-valuemax="100">
-          Combat: {hero.powerstats.combat + '%'}
+          {hero.powerstats.combat + '%'}
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Durability</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -26,11 +28,12 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.durability}
           aria-valuemin="0"
           aria-valuemax="100">
-          Durability: {hero.powerstats.durability + '%'}
+          {hero.powerstats.durability + '%'}
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Intelligence</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -38,11 +41,12 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.intelligence}
           aria-valuemin="0"
           aria-valuemax="100">
-          Intelligence: {hero.powerstats.intelligence + '%'}
+          {hero.powerstats.intelligence + '%'}
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Power</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -50,11 +54,12 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.power}
           aria-valuemin="0"
           aria-valuemax="100">
-          Power: {hero.powerstats.power + '%'}
+          {hero.powerstats.power + '%'}
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Speed</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -62,11 +67,12 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.speed}
           aria-valuemin="0"
           aria-valuemax="100">
-          Speed: {hero.powerstats.speed + '%'}
+          {hero.powerstats.speed + '%'}
         </div>
       </div>
 
-      <div className="progress" style={{ height: '15px', width: '170px' }}>
+      <span className="span-progress">Strength</span>
+      <div className="progress" style={{ height: '13px', width: '130px' }}>
         <div
           className="progress-bar bg-danger"
           role="progressbar"
@@ -74,7 +80,7 @@ const Powerstats = ({ hero }) => {
           aria-valuenow={hero.powerstats.strength}
           aria-valuemin="0"
           aria-valuemax="100">
-          Strength: {hero.powerstats.strength + '%'}
+          {hero.powerstats.strength + '%'}
         </div>
       </div>
     </div>
