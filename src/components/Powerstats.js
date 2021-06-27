@@ -3,6 +3,8 @@ import React from 'react';
 //STYLES
 import '../styles/PowerStats.scss';
 
+//POWERSTATS OF THE CARD
+
 const Powerstats = ({ hero }) => {
   return (
     <div className="powerstats-container">

@@ -71,6 +71,8 @@ const Login = () => {
     }
   };
 
+  //FORMIK INITIAL VALUES
+
   const formik = useFormik({
     initialValues: {
       email: '',

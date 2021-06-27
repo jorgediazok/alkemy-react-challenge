@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+//STYLES
 import '../styles/Navbar.scss';
 
 //COMPONENTS
 import ModalStats from './ModalStats';
 
 const Navbar = ({ heros, team }) => {
+  //STATES AND ROUTING
   const [openModalStats, setOpenModalStats] = useState(false);
   const history = useHistory();
 
+  //FUNCTION TO LOGOUT
   const logout = () => {
     localStorage.removeItem('user');
     history.push('/login');

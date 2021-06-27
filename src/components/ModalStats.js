@@ -10,7 +10,7 @@ import Image from '../images/batman.jpg';
 import '../styles/ModalStats.scss';
 
 const ModalStats = ({ closeModalStats, team }) => {
-  //REDUCE FUNCTIONS
+  //REDUCE FUNCTIONS TO GET VALUES
 
   const combatStats =
     team.length > 0

@@ -12,6 +12,7 @@ const HeroHomeCards = ({ onDelete, addToTeam, hero }) => {
   const [openModal, setOpenModal] = useState(false);
   const [isActive, setActive] = useState(false);
 
+  //ADD
   const addAndMakeCardActive = (id) => {
     addToTeam(id);
     setActive(true);

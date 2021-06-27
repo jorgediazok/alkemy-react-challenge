@@ -6,6 +6,8 @@ import Image from '../images/spidy.jpg';
 //STYLES
 import '../styles/ModalWarning.scss';
 
+//WARNING WHICH TELLS THE USER THAT CANT ADD MORE THAN 6 HEROS
+
 const ModalWarning = ({ closeModalWarning }) => {
   return (
     <div className="modalBackground">

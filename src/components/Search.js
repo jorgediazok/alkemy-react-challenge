@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-//DEBOUNCE
+//DEBOUNCE TO CONTROL EXCESS OF API REQUESTS
 import debounce from 'lodash.debounce';
 
 //STYLES

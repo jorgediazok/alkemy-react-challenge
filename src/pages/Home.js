@@ -18,6 +18,7 @@ import data from '../data/herosNames.json';
 //TOAST
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 //TOAST CONFIGURATION
 toast.configure();
 

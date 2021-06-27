@@ -3,7 +3,10 @@ import React from 'react';
 //ICON
 import { GrClose } from 'react-icons/gr';
 
+//STYLES
 import '../styles/ModalInfo.scss';
+
+//MODAL TO GET THE INFO OF THE HERO
 
 const ModalInfo = ({ closeModal, hero }) => {
   return (
