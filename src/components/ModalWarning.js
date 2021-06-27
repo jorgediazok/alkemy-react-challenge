@@ -17,7 +17,7 @@ const ModalWarning = ({ closeModalWarning }) => {
         </div>
         <div className="body">
           <img src={Image} alt="" className="spidy" />
-          <p className="message">You can't add more Heros.</p>
+          <p className="message">You can add only 6 heros.</p>
         </div>
         <div className="footer">
           <button

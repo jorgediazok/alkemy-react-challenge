@@ -84,19 +84,6 @@ const ModalStats = ({ closeModalStats, team }) => {
           .reduce((a, b) => a + b)
       : '';
 
-  // let arrayOfStats = [
-  //   combatStats,
-  //   durabilityStats,
-  //   intelligenceStats,
-  //   powerStats,
-  //   speedStats,
-  //   strengthStats,
-  // ];
-
-  // console.log(arrayOfStats.sort((a, b) => a + b));
-
-  console.log(team);
-
   return (
     <>
       {team.length === 0 ? (
@@ -137,7 +124,7 @@ const ModalStats = ({ closeModalStats, team }) => {
               <h1>TEAM STATS</h1>
             </div>
             <div className="body">
-              <h1>PowerStats</h1>
+              <h1>PowerStats Combined</h1>
               <div className="powerstats-container">
                 <div
                   className="progress"

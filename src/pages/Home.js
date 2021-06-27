@@ -15,12 +15,26 @@ import '../styles/Home.scss';
 //DATA
 import data from '../data/herosNames.json';
 
+//TOAST
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+//TOAST CONFIGURATION
+toast.configure();
+
 const Home = () => {
   //STATES
   const [term, setTerm] = useState('');
   const [heros, setHeros] = useState([]);
   const [teamCurrentMembers, setTeamCurrentMembers] = useState([]);
   const [openWarning, setOpenWarning] = useState(false);
+
+  //TOAST FUNCTION
+  const notify = () => {
+    toast('Hero Added to Team', {
+      position: toast.POSITION.TOP_LEFT,
+      autoClose: 2000,
+    });
+  };
 
   //CALLING TO THE API
   const searchSuperHeros = async () => {
@@ -39,6 +53,7 @@ const Home = () => {
         ...teamCurrentMembers,
         newMember,
       ]);
+      notify();
     } else {
       setOpenWarning(true);
     }

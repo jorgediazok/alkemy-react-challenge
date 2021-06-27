@@ -18,7 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 
 //STYLES
-import '../styles/Auth.scss';
+import '../styles/Login.scss';
 
 //TOAST
 import { toast } from 'react-toastify';
@@ -34,7 +34,6 @@ const validationSchema = yup.object({
 });
 
 //TOAST CONFIGURATION
-
 toast.configure();
 
 const Login = () => {
@@ -42,6 +41,7 @@ const Login = () => {
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
 
+  //TOAST FUNCTION
   const notify = () => {
     toast('Login Succesful', { position: toast.POSITION.TOP_LEFT });
   };
@@ -66,6 +66,7 @@ const Login = () => {
       setSuccess(response.data.message);
       localStorage.setItem('user', JSON.stringify(token));
       formik.resetForm();
+      notify();
       history.push('/');
     }
   };
@@ -133,8 +134,7 @@ const Login = () => {
                   <button
                     className="btn-login mt-3"
                     type="submit"
-                    disabled={!formik.isValid}
-                    onClick={notify}>
+                    disabled={!formik.isValid}>
                     LOGIN
                   </button>
                 </div>

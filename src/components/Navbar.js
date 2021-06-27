@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/Navbar.scss';
 
-//COMPONENTES
+//COMPONENTS
 import ModalStats from './ModalStats';
 
 const Navbar = ({ heros, team }) => {

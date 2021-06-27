@@ -2,11 +2,13 @@
   display: flex;
   justify-content: flex-end;
   background-color: #efefef !important;
-  height: 10px;
+  height: 35px;
+  @media screen and (max-width: 650px) {
+    height: 25px;
+  }
 }
 
 .btn-nav {
-  z-index: 10000000;
   margin-top: 5px !important;
   margin-right: 20px !important;
   cursor: pointer;
